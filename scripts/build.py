@@ -53,7 +53,7 @@ cards = []
 for g in games:
     title = escape(g['title'])
     cards.append(f'''<article class="game-entry">
-      <a class="visual-link" href="{g['id']}/" aria-label="GAME.{g['id']} 〈{title}〉 작품 페이지"><img class="release-visual" src="{escape(g['visual'])}" width="1080" height="1350" alt="{escape(g['visualAlt'])}" fetchpriority="high"></a>
+      <a class="visual-link" href="{g['id']}/" aria-label="GAME.{g['id']} 〈{title}〉 작품 페이지"><img class="release-visual" src="{escape(g['visual'])}" width="1061" height="1123" alt="{escape(g['visualAlt'])}" fetchpriority="high"></a>
       <div class="entry-copy"><p class="eyebrow">GAME.{g['id']}</p><h2><a href="{g['id']}/">〈{title}〉</a></h2><p class="description">{escape(g['description'])}</p><p class="metadata">{' · '.join(escape(p['name']) for p in g['platforms'])} <span>{escape(g['year'])}</span></p><a class="entry-link" href="{g['id']}/">게임 보기 <span aria-hidden="true">↗</span></a></div>
     </article>''')
 body = '<main id="main"><h1 class="index-title">GAME</h1><div class="game-index">' + '\n'.join(cards) + '</div></main>'
@@ -65,7 +65,7 @@ for g in games:
     body = f'''<main id="main" class="landing">
       <nav class="back-nav" aria-label="상위 페이지"><a href="../">← GAME</a></nav>
       <article class="game-entry">
-        <img class="release-visual" src="../{escape(g['visual'])}" width="1080" height="1350" alt="{escape(g['visualAlt'])}" fetchpriority="high">
+        <img class="release-visual" src="../{escape(g['visual'])}" width="1061" height="1123" alt="{escape(g['visualAlt'])}" fetchpriority="high">
         <div class="entry-copy"><p class="eyebrow">GAME.{g['id']}</p><h1>〈{title}〉</h1><p class="description">{escape(g['description'])}</p><p class="metadata">{' · '.join(escape(p['name']) for p in g['platforms'])} <span>{escape(g['year'])}</span></p><div class="platforms">{buttons}</div></div>
       </article>
     </main>'''

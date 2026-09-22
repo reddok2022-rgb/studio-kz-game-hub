@@ -2,10 +2,10 @@
   {
     "id": "001",
     "title": "퇴근 전",
-    "description": "퇴근 전, 회사 로비를 정돈하는 작은 청소 게임.",
+    "description": "퇴근 전, 회사 로비를 정돈하는 60초 캐주얼 청소 게임.",
     "year": "2026",
-    "visual": "assets/game-001-release.png",
-    "visualAlt": "회사 로비에서 대걸레로 바닥을 청소하는 인영. GAME.001 〈퇴근 전〉 공개 이미지.",
+    "visual": "assets/game-001-scene.jpg",
+    "visualAlt": "회사 로비에서 대걸레로 바닥을 청소하는 인영.",
     "platforms": [{"name": "WEB", "label": "PLAY ON WEB", "href": "play/"}]
   }
 ]

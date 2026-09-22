@@ -11,7 +11,7 @@ a:focus-visible{outline:2px solid var(--ink);outline-offset:6px}
 .game-entry{display:grid;gap:32px;align-items:center}
 .release-visual{display:block;width:100%;max-width:480px;height:auto;background:#000}
 .visual-link{display:block}
-.eyebrow{font-size:.875rem;letter-spacing:.12em;color:var(--muted);margin:0 0 16px}
+.eyebrow{font-size:.875rem;letter-spacing:.12em;color:#da6767;margin:0 0 16px}
 h1,h2{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:500;line-height:1.3;letter-spacing:-.055em;margin:0;word-break:keep-all;overflow-wrap:anywhere}
 .description{max-width:25em;color:#c2bcbc;font-size:1rem;line-height:1.9;word-break:keep-all;overflow-wrap:anywhere;margin:24px 0}
 .metadata{display:flex;gap:20px;align-items:center;font-size:.75rem;letter-spacing:.09em;color:var(--muted);margin:0 0 32px}
