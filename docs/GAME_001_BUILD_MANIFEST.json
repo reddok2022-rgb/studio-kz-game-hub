@@ -1,6 +1,6 @@
 {
   "release": "Public Release v1.0",
-  "source_commit": "7bd0bb81a529a693c74bf75bc6447a17b8f78726",
+  "source_commit": "6305e9b0e4996ff3c3bfc50c6e52a04435b08933",
   "candidate_commit": "c11d334042c6312e0a4a3e6a697b5cc6ff2b24f2",
   "packaging_changes": [],
   "files": {
@@ -33,7 +33,7 @@
     "assets/inyoung/inyoung_right_idle.png": "eb6d1601d3cf6b58518dd904574d306b35439c99f38ace565cba0fb1edc0fa45",
     "assets/inyoung/inyoung_right_walk_a.png": "7a9f44ffcdfa2b02f9659cbd75699747364bb1d9bcf99ab1d8ea04b1ec2f99af",
     "assets/inyoung/inyoung_right_walk_b.png": "10f52a69383983562bad4335a8184ac34431abe7d6a2d238b857148503a6866f",
-    "game.js": "d0f5dc57ffb72c37cbb2c8244f4ecb622eaf0c205db3df42e61b894bf8108809",
+    "game.js": "979b8fa0e17827dc4d67222b60d562450e7e35c07c5638a9d993bd20a6cac49d",
     "index.html": "d1093c60f165d1f696251f6f4f0e0dace119d05409784f283b045ee083251f37",
     "placement-pool.js": "c9b2ff2c97f864a66ac3e35f72854905a3ecc916b0a0a7f847384b980bac387e",
     "style.css": "af789297a6d46f1b18f0392fa517b45bbd084495e10f74a83b91329c27d662df"

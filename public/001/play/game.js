@@ -7,7 +7,7 @@ const $=selector=>document.querySelector(selector);
 const keys=new Set();
 const finePointer=window.matchMedia?.('(hover:hover) and (pointer:fine)').matches||false;
 let sessionRound=0,guideUntil=0,guideVisible=false,guideMoveVisible=false,guideCleanVisible=false;
-let stainGuideSeen=false,dustGuideSeen=false,toolGuide='';
+let stainGuideLearned=false,dustGuideLearned=false,toolGuide='';
 let resultRevealAt=0,resultEndAt=0,clockOutAt=0;
 const BGM_URL='assets/audio/gameplay/calm-alert-understated-game-loop.mp3';
 const BGM_VOLUME=.18;
@@ -560,8 +560,8 @@ function clean(){
   if(activeStain){dirt=activeStain.dirt;totalDirt=activeStain.total;}
   if(mode==="dust")dustState="sweeping";
   completed=false;cleaning=true;mop={x:0,y:0};keyboardDirection=keyboardLane=0;keys.clear();faceStain();
-  if(sessionRound===1&&mode==='stain'&&!stainGuideSeen){stainGuideSeen=true;toolGuide=finePointer?'DRAG':'SWIPE';}
-  if(sessionRound===1&&mode==='dust'&&!dustGuideSeen){dustGuideSeen=true;toolGuide='SWEEP';}
+  if(mode==='stain'&&!stainGuideLearned){toolGuide=finePointer?'DRAG':'SWIPE';}
+  if(mode==='dust'&&!dustGuideLearned){toolGuide='SWEEP';}
 }
 
 function pointSegmentDistanceSquared(px,py,ax,ay,bx,by){
@@ -613,6 +613,7 @@ function wipeSegment(fromX,fromY,toX,toY){
       removed++;
     }
   }
+  if(removed){stainGuideLearned=true;toolGuide='';}
   if(removed&&performance.now()-lastScrub>70){
     sound('scrub');
     lastScrub=performance.now();
@@ -628,7 +629,6 @@ function moveMop(dx,dy){
   const fromY=surface().y+mop.y;
   mop.x=clamp(mop.x+dx,-MOP_LIMIT_X,MOP_LIMIT_X);
   mop.y=clamp(mop.y+dy,-MOP_LIMIT_Y,MOP_LIMIT_Y);
-  if(surface().x+mop.x!==fromX||surface().y+mop.y!==fromY)toolGuide='';
   if(mode==="dust")return pushDust(fromX-DUST.x,fromY-DUST.y,mop.x,mop.y);
   return wipeSegment(fromX,fromY,activeStain.x+mop.x,activeStain.y+mop.y);
 }
@@ -659,9 +659,11 @@ function pushDust(ax,ay,bx,by){
     const x=ax+dx*n/steps,y=ay+dy*n/steps;
     for(const pile of dust){
       if(Math.hypot(pile.x-x,pile.y-y)<=10+2*Math.sqrt(pile.mass)){
+        const previousX=pile.x,previousY=pile.y;
         const nextX=clamp(pile.x+dx/steps,-44,44),nextY=clamp(pile.y+dy/steps,-26,26);
         if(!blocked(DUST.x+nextX,DUST.y+pile.y))pile.x=nextX;
         if(!blocked(DUST.x+pile.x,DUST.y+nextY))pile.y=nextY;
+        if(pile.x!==previousX||pile.y!==previousY){dustGuideLearned=true;toolGuide='';}
       }
     }
     mergeDust();

@@ -4,8 +4,8 @@ Studio KZ의 Game을 발견하고, 각 Game의 영구 페이지와 배포 플랫
 
 ## Canonical domain
 
-- Planned: `https://game.kimbyeonggwan.xyz`
-- Domain connection is performed after the first GitHub Pages build is verified.
+- Active custom domain: `https://game.kimbyeonggwan.xyz`
+- Hosting: GitHub Pages; custom domain active.
 
 ## URL contract
 
@@ -35,10 +35,13 @@ The permanent page `/001` should remain valid even if the distribution platform 
 
 ### GAME.001 〈퇴근 전〉
 
-- Hub version: **Studio KZ Game Hub v0.1 — Release Infrastructure RC**
+- Hub version: **Studio KZ Game Hub v0.1**
 - First distribution channel: Web
-- Completed Web build: Public Release v1.0, copied without changes from source commit `7bd0bb81a529a693c74bf75bc6447a17b8f78726`
-- Current gate: GitHub Pages activation and public/browser QA; custom domain remains WAIT
+- Completed Web build: Public Release v1.0 / **Production V15**, copied byte-for-byte from source commit `6305e9b0e4996ff3c3bfc50c6e52a04435b08933`
+- Final hotfix: First-Time Context Guide Persistence Hotfix v0.2
+- Canonical: `https://game.kimbyeonggwan.xyz/001/`
+- Play: `https://game.kimbyeonggwan.xyz/001/play/`
+- Custom domain: **active**
 - Public copy should describe the current work, not announce hypothetical future platforms.
 
 ## Repository boundary
@@ -81,18 +84,13 @@ Only actual channels belong in `platforms`. Existing GAME.001 runtime lives unde
 `public/001/play/`, with every original file checksum recorded in
 `docs/GAME_001_BUILD_MANIFEST.json`.
 
-The `main` push / manual workflow publishes only `dist/`. Enable repository
-**Settings → Pages → Build and deployment → Source → GitHub Actions** first.
-The workflow deliberately does not configure a custom domain or change DNS.
+The `main` push / manual workflow publishes only `dist/` through GitHub Actions.
+The active custom domain is `https://game.kimbyeonggwan.xyz`.
+Actions uses `SITE_URL` for canonical URLs. The workflow does not change DNS.
 
-Expected default Pages base: `https://reddok2022-rgb.github.io/studio-kz-game-hub/`.
-During this stage the repository prefix precedes `/001/` and `/001/play/`.
-Real `index.html` files serve all three routes. Pages adds a trailing slash to
-directory URLs; relative assets remain valid after direct access and refresh.
-
-Canonical tags use the default Pages base during RC. After approved domain setup,
-set repository Actions variable `SITE_URL` to `https://game.kimbyeonggwan.xyz`
-and rerun the workflow. Do not do this before the public QA gate passes.
+Real `index.html` files serve `/`, `/001/`, and `/001/play/`.
+Pages adds a trailing slash to directory URLs; relative assets remain valid
+after direct access and refresh.
 
 The prior game's BEST remains on its prior origin; this release does not migrate
 localStorage to the new origin. No storage key or game behavior was changed.
