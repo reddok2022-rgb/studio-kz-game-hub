@@ -1,0 +1,5 @@
+Door SFX Final Calibration v0.3
+Created by deterministic project-original DSP in tools/finalize-door-sfx.py.
+No third-party samples and no reference waveform/sample are present.
+The prior user-supplied reference was used only for spectral direction; ownership was not established.
+V5 and V6 assets remain preserved for rollback and QA comparison.

@@ -1,0 +1,8 @@
+Door v2 A/B/C — project-original synthesized audio.
+Source: tools/calibrate-door-sfx.py, deterministic oscillators and noise.
+No samples or waveform data from the uploaded reference enter synthesis.
+Reference ownership was not established; it is used only for signal analysis
+and is not included in the game or repository.
+No third-party sample license applies. This note records provenance, not a
+determination of exclusive copyright in generated material.
+The older v5 original/game asset and creation script are preserved unchanged.

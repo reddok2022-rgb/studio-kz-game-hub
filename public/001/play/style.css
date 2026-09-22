@@ -1,0 +1,59 @@
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%;overflow:hidden;overscroll-behavior:none;background:#303b46;color:#e9ece5;font-family:ui-monospace,SFMono-Regular,Consolas,monospace}
+body{display:grid;place-items:center}
+button{font:inherit;cursor:pointer;touch-action:none}
+#game{position:relative;width:min(100vw,56.25dvh);height:min(100dvh,177.7778vw);overflow:hidden;touch-action:none;user-select:none;container-type:inline-size;background:#e8e7df;box-shadow:0 0 80px #1116}
+canvas{width:100%;height:100%;image-rendering:pixelated;display:block}
+header{position:absolute;inset:0 0 auto;height:9.375%;display:flex;justify-content:space-between;align-items:center;padding:0 5.55%;background:#e8e7df;color:#435c6a;border-bottom:1px solid #c5cdcc;font-size:4.44cqw;letter-spacing:.02em;pointer-events:none}
+#progress{color:#667b80;font-size:3.2cqw;letter-spacing:.08em;white-space:nowrap}
+#brand{position:absolute;top:11%;left:6.1%;color:#415966;font-size:4.1cqw;font-weight:bold;pointer-events:none}
+#brand small{display:block;margin-top:4px;color:#859397;font-size:2.5cqw;letter-spacing:.13em}
+#controls{position:absolute;bottom:5.3%;left:0;width:100%;height:17%;display:flex;align-items:center;justify-content:space-between;padding:0 8%;z-index:3}
+#joystick{position:relative;width:25cqw;height:25cqw;border-radius:50%;border:1px solid #738c9333;background:transparent;touch-action:none}
+#joystick:before,#joystick:after{content:'';position:absolute;background:#7f95981c}
+#joystick:before{width:1px;height:80%;left:50%;top:10%}
+#joystick:after{height:1px;width:80%;top:50%;left:10%}
+#joystick i{position:absolute;left:calc(50% - 6.5cqw);top:calc(50% - 6.5cqw);width:13cqw;height:13cqw;background:#819da136;border:1px solid #7b959b45;border-radius:50%;z-index:1}
+#joystick b{position:absolute;top:108%;width:100%;text-align:center;color:#7c9096;font-size:2.8cqw;font-weight:normal;letter-spacing:.13em}
+#clean{width:25cqw;height:25cqw;border-radius:50%;background:#7d9ea329;border:1px solid #7c969c60;color:#5a7680;font-size:3.8cqw;box-shadow:0 2px 0 #7c969c25;transition:background .12s}
+#clean.active{background:#749ba04a;border-color:#638b9490;color:#365f6d}
+#clean:active{transform:translateY(1px);box-shadow:none}
+#opening{position:absolute;inset:0;display:grid;place-items:center;background:#1d303a5c;z-index:10}
+#opening[hidden]{display:none}
+.opening-panel{width:78%;margin-top:-8%;padding:7cqw 7cqw 5.2cqw;background:#263b42f2;color:#f0f3e9;border:1px solid #dbe6e16b;box-shadow:3px 3px 0 #16282f70}
+.opening-dialogue{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Noto Sans KR",sans-serif;font-size:4.35cqw;line-height:1.7;letter-spacing:-.02em}
+.opening-dialogue p{margin:0}
+.opening-narration{margin:6cqw 0 0;color:#bdc9c6;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Noto Sans KR",sans-serif;font-size:3.55cqw;line-height:1.6;letter-spacing:-.025em}
+#opening-close{display:block;min-width:44%;min-height:44px;margin:7cqw auto 0;padding:3.2cqw 4cqw;border:1px solid #b9cac8;background:#dfe8df;color:#304f5e;font-size:3.6cqw;font-weight:bold;letter-spacing:.14em;box-shadow:0 2px 0 #142a3366}
+#opening-close:active{transform:translateY(1px);box-shadow:none}
+#hint{position:absolute;left:50%;bottom:23.4%;width:auto;transform:translateX(-50%);padding:0;background:transparent;color:#e5ebe3;opacity:0;z-index:5;white-space:nowrap;font-size:3.8cqw;font-weight:bold;line-height:1.25;letter-spacing:.06em;pointer-events:none;transition:opacity .16s ease}
+#hint.active{padding:2.2cqw 3.2cqw;background:#263b42bd;border:1px solid #dbe6e138;box-shadow:none;opacity:1}
+#result{position:absolute;inset:0;display:grid;place-items:center;background:#253b4866;text-align:center;z-index:8}
+#result[hidden]{display:none}
+#result>div{width:72%;padding:27px 18px 12px;background:#edf0e7ee;color:#3f5967;border:2px solid #f8f8ed;box-shadow:4px 4px 0 #344d5838}
+#result h1{margin:0 0 13px;font-family:system-ui,sans-serif;font-size:9cqw;line-height:1.15;letter-spacing:.04em}
+#result.result-success h1{margin-bottom:7px}
+#result h1:empty{display:none}
+#result-elapsed{margin:0 0 calc(3.2cqw + 4px);font-size:7.2cqw;font-weight:bold;line-height:1;font-variant-numeric:tabular-nums;letter-spacing:.025em;white-space:nowrap}
+#result-elapsed small{position:absolute;left:calc(100% + .85cqw);bottom:.12em;font-size:3cqw;font-weight:bold;line-height:1;letter-spacing:.12em;white-space:nowrap}
+#result-elapsed[hidden]{display:none}
+#result-record{position:relative;display:inline-block}
+#result-elapsed-value{display:inline-block}
+#result-new-best{position:absolute;right:calc(100% + 1.1cqw);bottom:.16em;color:#71868b;font-size:2.8cqw;font-weight:bold;line-height:1;letter-spacing:.08em;white-space:nowrap}
+#result-new-best[hidden]{display:none}
+#result-time{display:block;margin:0 0 11px;font-size:7.2cqw;font-weight:bold;line-height:1.1;letter-spacing:.03em}
+#result.result-success #result-time{margin-bottom:9px;color:#607780;font-size:4.8cqw;font-weight:600;letter-spacing:.04em}
+#result-progress{margin:0;color:#526f79;font-size:4.2cqw;line-height:1.25}
+#retry{display:block;width:100%;min-height:44px;margin:22px 0 9px;padding:14px;border:0;border-bottom:3px solid #7799a2;background:#9cb9bd;color:#304f5e;font-size:3.8cqw;font-weight:bold;letter-spacing:.15em}
+#retry span{float:right}
+#retry:active{transform:translateY(1px);border-bottom-width:2px}
+@media(hover:hover) and (pointer:fine){#joystick b:after{content:' / WASD';letter-spacing:.04em}}
+
+.initial-guide{position:absolute;bottom:23.4%;left:8%;right:8%;display:flex;justify-content:space-between;pointer-events:none;z-index:4}
+.initial-guide .guide-card{min-width:19.5cqw;padding:1.25cqw 1.7cqw;text-align:center;color:#e9eee7;background:#263b42b8;border:1px solid #dbe6e138;font-size:3.35cqw;font-weight:bold;line-height:1.25;white-space:nowrap;transition:opacity .16s ease,transform .16s ease}
+.initial-guide small{display:block;margin-top:.7cqw;color:#b9c5c2;font-size:2.55cqw;font-weight:normal}
+.initial-guide .guide-card.dismissed{opacity:0;transform:translateY(3px)}
+#desktop-guide{display:none}
+@media(hover:hover) and (pointer:fine){#mobile-guide{display:none}#desktop-guide{display:flex}}
+.result-enter{animation:result-enter .2s ease-out both}
+@keyframes result-enter{from{opacity:0}to{opacity:1}}

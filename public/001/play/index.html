@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta name="theme-color" content="#303b46">
+  <title>퇴근 전</title>
+  <meta name="description" content="퇴근 전, 회사 로비를 정돈하는 작은 청소 게임.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath fill='%237faca7' d='M14 2h4v20h-4zM4 22h24v8H4z'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main id="game" aria-label="퇴근 전">
+    <canvas id="scene" width="360" height="640" aria-label="회사 로비와 일곱 개의 청소 작업"></canvas>
+    <header><time id="clock">17:59:00</time><span id="progress" aria-live="polite">CLEAN 0 / 7</span></header>
+    <div id="brand">퇴근 전</div>
+    <div id="mobile-guide" class="initial-guide"><span id="mobile-move-guide" class="guide-card dismissed">MOVE<small>JOYSTICK</small></span><span id="mobile-clean-guide" class="guide-card dismissed">CLEAN<small>BUTTON</small></span></div>
+    <div id="desktop-guide" class="initial-guide"><span id="desktop-move-guide" class="guide-card dismissed">MOVE<small>WASD / ARROW</small></span><span id="desktop-clean-guide" class="guide-card dismissed">CLEAN<small>E</small></span></div>
+    <div id="hint" aria-live="polite"></div>
+    <div id="controls">
+      <div id="joystick" aria-label="이동 조이스틱"><i></i><b>MOVE</b></div>
+      <button id="clean" type="button">CLEAN</button>
+    </div>
+    <section id="opening" role="dialog" aria-modal="true" aria-labelledby="opening-dialogue">
+      <div class="opening-panel">
+        <div id="opening-dialogue" class="opening-dialogue">
+          <p>오늘은 청소할 게 좀 많이 남았네.</p>
+          <p>난 퇴근 시간이 돼서 먼저 가볼게.</p>
+          <p>할 수 있지?</p>
+        </div>
+        <p class="opening-narration">청소 선배는 그렇게 말하고 로비를 나갔다.</p>
+        <button id="opening-close" type="button">CLOSE</button>
+      </div>
+    </section>
+    <section id="result" hidden aria-live="polite"><div>
+      <h1 id="result-title"></h1>
+      <p id="result-elapsed" hidden><span id="result-record"><span id="result-new-best" hidden>NEW BEST</span><span id="result-elapsed-value"></span><small>SEC</small></span></p>
+      <time id="result-time">17:59:00</time>
+      <p id="result-progress">CLEAN 0 / 7</p>
+      <button id="retry" type="button">RETRY <span>↻</span></button>
+    </div></section>
+  </main>
+  <script src="placement-pool.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>

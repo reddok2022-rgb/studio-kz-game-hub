@@ -1,0 +1,9 @@
+Asset: Automatic Door Open — Original Source
+Created: 2026-09-21
+Generator: tools/create-door-sfx.py
+
+This source was synthesized specifically for 《퇴근 전》 from deterministic
+oscillators and filtered noise. It contains no third-party recording, sample,
+melody, or downloaded sound material. No external attribution or sample license
+is required. It is intended for unrestricted use within this project, including
+commercial releases and project derivatives.
