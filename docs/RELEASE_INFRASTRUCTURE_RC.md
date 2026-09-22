@@ -33,7 +33,13 @@ No iframe, SPA routing, injected runtime, or dependency download is needed.
 - All 33 GAME.001 files match approved-source SHA-256 hashes: PASS.
 - Local HTTP: all three routes return 200 after directory normalization on both
   direct and repeated requests; all 33 served game files match their hashes.
-- Public GitHub Pages routes and refresh: pending deployment.
+- GitHub Actions build, route/hash verification and artifact upload: PASS on
+  implementation commit `47ef3b18f64087eb240fb3b62456bbccd2eca40e`.
+- GitHub Actions deploy: BLOCKED at `actions/configure-pages@v5`:
+  `Get Pages site failed` / `HttpError: Not Found` because Pages is not enabled.
+  Run: https://github.com/reddok2022-rgb/studio-kz-game-hub/actions/runs/35679347453
+- Default Pages root opened in Chrome: 404, "There isn't a GitHub Pages site here."
+  Public `/001`, `/001/play` and browser-refresh acceptance remain unverified.
 - Actual desktop and mobile/touch play: pending deployment and browser/device QA.
 - Audio files preserved; audible playback and success/retry: pending browser QA.
 - A static build or hash comparison is not evidence of a device playtest.
@@ -46,6 +52,10 @@ The initial repository reports `has_pages: false`. Its default Pages site must b
 enabled with **Settings → Pages → Build and deployment → Source → GitHub Actions**.
 Then open **Actions → Deploy Game Hub to GitHub Pages → Run workflow → main**
 (or rerun the failed deployment after enablement).
+
+The connected GitHub tools do not expose a Pages-settings mutation, and the
+available Cloud Browser is not signed into GitHub. No login, token creation,
+permission changes or DNS changes were performed to bypass this setup step.
 
 Expected test URLs (not a claim of deployment success):
 
