@@ -28,9 +28,7 @@ def page(title, description, body, prefix, route):
 <body>
   <a class="skip" href="#main">본문으로</a>
   <div class="shell">
-    <header class="masthead"><a href="{prefix}" aria-label="Studio KZ Game Hub">STUDIO KZ</a><span>GAME</span></header>
     {body}
-    <footer>STUDIO KZ <span>GAME</span></footer>
   </div>
 </body>
 </html>
@@ -59,7 +57,7 @@ for g in games:
       <div class="entry-copy"><p class="eyebrow">GAME.{g['id']}</p><h2><a href="{g['id']}/">〈{title}〉</a></h2><p class="description">{escape(g['description'])}</p><p class="metadata">{' · '.join(escape(p['name']) for p in g['platforms'])} <span>{escape(g['year'])}</span></p><a class="entry-link" href="{g['id']}/">게임 보기 <span aria-hidden="true">↗</span></a></div>
     </article>''')
 body = '<main id="main"><h1 class="index-title">GAME</h1><div class="game-index">' + '\n'.join(cards) + '</div></main>'
-(OUT / 'index.html').write_text(page('GAME — Studio KZ', 'Studio KZ의 게임.', body, './', '/'))
+(OUT / 'index.html').write_text(page('GAME', 'GAME', body, './', '/'))
 
 for g in games:
     title = escape(g['title'])
@@ -72,5 +70,5 @@ for g in games:
       </article>
     </main>'''
     (OUT / g['id']).mkdir(exist_ok=True)
-    (OUT / g['id'] / 'index.html').write_text(page(f'GAME.{g["id"]} 〈{g["title"]}〉 — Studio KZ', g['description'], body, '../', f'/{g["id"]}/'))
+    (OUT / g['id'] / 'index.html').write_text(page(f'GAME.{g["id"]} 〈{g["title"]}〉', g['description'], body, '../', f'/{g["id"]}/'))
 print(f'Built {len(games)} game landing(s) → {OUT}')
