@@ -14,7 +14,7 @@ const BGM_VOLUME=.18;
 const DOOR_SFX_URL='assets/audio/gameplay/door-v3-lower-soft-rail.mp3';
 const DOOR_SFX_GAIN=.20;
 const DOOR_SFX_DELAY_MS=125;
-const PERSONAL_BEST_KEY='clockout-core-best-v01';
+const PERSONAL_BEST_KEY='studio-kz-game-001-best-v1';
 let bgmBytesPromise=typeof fetch==='function'?fetch(BGM_URL,{cache:'force-cache'}).then(response=>{
   if(!response.ok)throw new Error(`BGM ${response.status}`);
   return response.arrayBuffer();

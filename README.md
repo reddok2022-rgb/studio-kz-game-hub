@@ -37,7 +37,7 @@ The permanent page `/001` should remain valid even if the distribution platform 
 
 - Hub version: **Studio KZ Game Hub v0.1**
 - First distribution channel: Web
-- Completed Web build: Public Release v1.0 / **Production V15**, copied byte-for-byte from source commit `6305e9b0e4996ff3c3bfc50c6e52a04435b08933`
+- Completed Web build: Public Release v1.0 / **Production V16**, copied byte-for-byte from source commit `c5b597d40b8d961cf8aa870644f1243f371476b1`
 - Final hotfix: First-Time Context Guide Persistence Hotfix v0.2
 - Canonical: `https://game.kimbyeonggwan.xyz/001/`
 - Play: `https://game.kimbyeonggwan.xyz/001/play/`
@@ -93,6 +93,10 @@ Pages adds a trailing slash to directory URLs; relative assets remain valid
 after direct access and refresh.
 
 The prior game's BEST remains on its prior origin; this release does not migrate
-localStorage to the new origin. No storage key or game behavior was changed.
+localStorage to the new origin. At official Public Release, the Personal Best key
+changes once from `clockout-core-best-v01` to `studio-kz-game-001-best-v1`.
+The old key is ignored and preserved; no migration or fallback read occurs.
+Both origins use the new key independently. Future patches retain this key.
+Rollback reference: Production V15 / `6305e9b0e4996ff3c3bfc50c6e52a04435b08933`.
 
 See `docs/RELEASE_INFRASTRUCTURE_RC.md` for provenance, QA limits and handoff.
